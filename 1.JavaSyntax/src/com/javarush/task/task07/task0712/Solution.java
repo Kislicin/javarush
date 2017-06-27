@@ -13,7 +13,7 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         ArrayList<String> list = new ArrayList();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int min = 1000;
+        int min = 1000; //Знаю, что криво :(
         int max = 0;
         for(int i=0; i<10; i++){
             list.add(reader.readLine());
