@@ -12,7 +12,20 @@ import java.util.ArrayList;
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> list = new ArrayList<String>();
+        boolean end = false;
+        String line = null;
+        while (end == false){
+            line = reader.readLine();
+            if (line.equals("end")){
+                end = true;
+                break;
+            }
+            list.add(line);
+        }
 
-        //напишите тут ваш код
+        for (int i=0; i<list.size(); i++){
+            System.out.println(list.get(i));
+        }
     }
 }
