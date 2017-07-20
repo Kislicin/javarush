@@ -20,12 +20,12 @@ public class Solution {
 
 
     public static HashMap<String, Cat> addCatsToMap(String[] cats) {
-        HashMap<String, Cat> mapCat = new HashMap<String, Cat>();
-        for (int i=0; i<cats.length; i++){
-            mapCat.put();
+        HashMap<String, Cat> mapCats = new HashMap<>();
+        for (int i = 0; i<cats.length; i++){
+            Cat cat = new Cat(cats[i]);
+            mapCats.put(cats[i], cat);
         }
-
-        return mapCat;
+        return mapCats;
     }
 
 
