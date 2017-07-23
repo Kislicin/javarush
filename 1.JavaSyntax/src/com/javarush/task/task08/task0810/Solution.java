@@ -23,12 +23,11 @@ public class Solution {
     }
 
     public static long getTimeMsOfGet(List list) {
-
-
+        Date before = new Date();
         get10000(list);
-
-        //напишите тут ваш код
-
+        Date after = new Date();
+        long time = after.getTime() - before.getTime();
+        return time;
     }
 
     public static void get10000(List list) {
