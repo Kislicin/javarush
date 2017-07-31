@@ -1,9 +1,6 @@
 package com.javarush.task.task08.task0827;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 /* 
 Работа с датой
@@ -14,14 +11,21 @@ public class Solution {
         System.out.println(isDateOdd("MAY 1 2013"));
     }
 
-    public static boolean isDateOdd(String date) throws ParseException {
-        SimpleDateFormat formater = new SimpleDateFormat("MM d yyyy", Locale.US);
-        Date inputDate = formater.parse(date);
-        Date startYear = new Date(inputDate.getYear(), 0, 0);
-        long interval = inputDate.getTime() - startYear.getTime();
-        long m = 1000*24*60*60;
-        System.out.println(dateFromNY.getTime()/(24*60*60*1000));
-
-        return true;
+    public static boolean isDateOdd(String date) {
+        Date startYear = new Date();
+        Date dateFromMain = new Date(date);
+        startYear.setYear(dateFromMain.getYear());
+        startYear.setMonth(0);
+        startYear.setDate(1);
+        startYear.setHours(0);
+        startYear.setMinutes(0);
+        startYear.setSeconds(0);
+        long diff = dateFromMain.getTime() - startYear.getTime();
+        int daysCount = (int)(diff / (24*60*60*1000));
+        if (daysCount%2!=0){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
