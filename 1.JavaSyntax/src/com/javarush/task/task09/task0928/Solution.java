@@ -1,9 +1,9 @@
-package com.javarush.task.task09.task0929;
+package com.javarush.task.task09.task0928;
 
 import java.io.*;
 
 /* 
-Обогатим код функциональностью!
+Код не компилится…
 */
 
 public class Solution {
@@ -12,24 +12,22 @@ public class Solution {
 
         String sourceFileName = reader.readLine();
         String destinationFileName = reader.readLine();
-        try {
-            InputStream fileInputStream = getInputStream(sourceFileName);
-            OutputStream fileOutputStream = getOutputStream(destinationFileName);
 
-        System.out.println(fileInputStream.available());
-        while (fileInputStream.available() > 0) {
+        InputStream fileInputStream = getInputStream(destinationFileName);
+        OutputStream fileOutputStream = getOutputStream(sourceFileName);
+
+        int count = 0;
+        while (fileInputStream.available() > 0)
+        {
             int data = fileInputStream.read();
             fileOutputStream.write(data);
+            count++;
         }
+
+        System.out.println("Скопировано байт " + count);
 
         fileInputStream.close();
         fileOutputStream.close();
-        }
-        catch (FileNotFoundException e){
-            System.out.println("Файл не существует.");
-            sourceFileName = reader.readLine();
-            destinationFileName = reader.readLine();
-        }
     }
 
     public static InputStream getInputStream(String fileName) throws IOException {
@@ -40,4 +38,3 @@ public class Solution {
         return new FileOutputStream(fileName);
     }
 }
-
