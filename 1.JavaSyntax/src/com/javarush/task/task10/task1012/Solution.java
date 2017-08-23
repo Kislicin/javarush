@@ -23,16 +23,22 @@ public class Solution {
 
         // ввод строк
         ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             String s = reader.readLine();
             list.add(s.toLowerCase());
         }
 
         int col=0;
-        for (int i=0; i<list.size(); i++){
-            String el = list.get(i);
-            System.out.println(el.codePointCount(0, el.length()));
-
+        for (char a : alphabet){
+            for (String y : list){
+                for (char z : y.toCharArray()){
+                    if (a == z){
+                        col++;
+                    }
+                }
+            }
+            System.out.println(a + " " + col);
+            col=0;
         }
     }
 
