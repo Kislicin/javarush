@@ -2,6 +2,7 @@ package com.javarush.task.task10.task1019;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 
 /* 
 Функциональности маловато!
@@ -10,12 +11,21 @@ import java.util.HashMap;
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        HashMap<Integer, String> map = new HashMap<>();
-        int id = Integer.parseInt(reader.readLine());
-        String name = reader.readLine();
-
-        map.put(id,name);
-
-        System.out.println("Id=" + id + " Name=" + name);
+        HashMap<String, Integer> map = new HashMap<>();
+        int id = 0;
+        String name = null;
+        while (true){
+            try {
+                id = Integer.parseInt(reader.readLine());
+            }
+            catch (Exception e){
+                break;
+            }
+            name = reader.readLine();
+            map.put(name, id);
+        }
+        for(Map.Entry<String, Integer> m : map.entrySet()){
+            System.out.println(m.getValue() + " " + m.getKey());
+        }
     }
 }
