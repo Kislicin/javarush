@@ -14,9 +14,18 @@ public class Solution {
     }
 
     public static String getObjectType(Object o) {
-        //напишите тут ваш код
-
-        return "хз";
+        String type=null;
+        if (o instanceof Cat)
+            type = "Кот";
+        if (o instanceof Tiger)
+            type = "Тигр";
+        if (o instanceof Lion)
+            type = "Лев";
+        if (o instanceof Bull)
+            type = "Бык";
+        if (type == null)
+            type = "хз";
+        return type;
     }
 
     public static class Cat {
