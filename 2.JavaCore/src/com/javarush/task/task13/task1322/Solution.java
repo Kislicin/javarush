@@ -13,11 +13,10 @@ public class Solution {
         SimpleObject<T> getInstance();
     }
 
-    class StringObject implements SimpleObject {
+    static class StringObject<T> implements SimpleObject {
         @Override
-        public StringObject getInstance() {
-
-            return null;
+        public SimpleObject getInstance() {
+            return this;
         }
     }
 
