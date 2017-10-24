@@ -12,24 +12,21 @@ public class Solution {
 
     static class HenFactory {
 
-        Hen getHen(String country) {
+        static Hen getHen(String country) {
             Hen hen = null;
-            if (country == Country.BELARUS){
-               // hen = new BelarusianHen();
-            } else if (country == Country.RUSSIA){
-               // hen = new RussianHen();
-            }
+            if (country.equals(Country.RUSSIA))
+                hen =  new RussianHen();
+
+            if (country.equals(Country.UKRAINE))
+                hen =  new UkrainianHen();
+
+            if (country.equals(Country.MOLDOVA))
+                hen =  new MoldovanHen();
+
+            if (country.equals(Country.BELARUS))
+                hen =  new BelarusianHen();
+
             return hen;
         }
     }
-
-    public abstract class Hen {
-        abstract int getCountOfEggsPerMonth();
-
-        String getDescription() {
-            return "Я — курица.";
-        }
-    }
-
-
 }
